@@ -33,7 +33,7 @@ function GameDisplay({ guess, answer, setRestart }) {
   };
 
   const calStyleClass = (word, index) => {
-    //choices --> "cell correct" : "cell misplaced" :"cell incorrect"
+    //choices --> "cell correct" : "cell misplaced" : "cell incorrect"
     if (answer[index] === word[index]) return "cell correct";
     else if (answer.includes(word[index])) return "cell misplaced";
     else return "cell incorrect";
@@ -75,7 +75,13 @@ function GameDisplay({ guess, answer, setRestart }) {
       }
       {
         // check if end
-        end ? <Popup guess={allGuess.length} onClose={handleComplete} /> : null
+        end ? (
+          <Popup
+            guess={allGuess.length}
+            onClose={handleComplete}
+            answer={answer}
+          />
+        ) : null
       }
     </div>
   );

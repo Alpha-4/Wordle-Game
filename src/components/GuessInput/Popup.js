@@ -1,6 +1,6 @@
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function Popup({ guess, onClose }) {
+function Popup({ guess, onClose, answer }) {
   return (
     <div className="popup-overlay">
       <div
@@ -15,11 +15,13 @@ function Popup({ guess, onClose }) {
           </p>
         ) : (
           <p>
-            Sorry, the correct answer is <strong>LEARN</strong>.
+            Sorry, the correct answer is <strong>{answer}</strong>.
           </p>
         )}
 
-        <button onClick={onClose}>Restart</button>
+        <button onClick={onClose} autoFocus={true}>
+          Restart
+        </button>
       </div>
     </div>
   );

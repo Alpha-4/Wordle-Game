@@ -17,7 +17,7 @@ function Game() {
     setRestart(false);
   }, [restart]);
 
-  console.info({ ans });
+  if (!restart) console.info({ ans });
 
   return (
     <>
